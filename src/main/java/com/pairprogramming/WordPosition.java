@@ -12,18 +12,13 @@ public class WordPosition {
         Map<String, Integer> wordMap = new HashMap<>();
 
         for (int i = 0; i < wordsArray.length; i++) {
-            if (wordMap.containsKey(wordsArray[i])) {
-                stringBuilder.append(wordMap.get(wordsArray[i]));
-            } else {
+            if (!wordMap.containsKey(wordsArray[i])) {
                 wordMap.put(wordsArray[i], i);
                 stringBuilder.append(i);
+            } else {
+                stringBuilder.append(wordMap.get(wordsArray[i]));
             }
         }
-        System.out.println(stringBuilder.toString());
         return stringBuilder.toString();
-    }
-
-    public static void main(String[] args) {
-        checkWordPosition("Ask not what your country can do for you ask what you can do for your country");
     }
 }
